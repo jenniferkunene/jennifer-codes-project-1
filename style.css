@@ -44,4 +44,20 @@ h1 {
     font-size: 120px;
     border-right: 2px solid;
     border-bottom: 2px solid;
+    border-left: 2px solid;
+    border-top:2px solid;
+}
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--orange);
+    color: #333;
+    border-color: var(--orange);
+    font-size: 18px;
+    transition: 200ms transform;
+    font-weight: 600;
+}
+button:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
 }
