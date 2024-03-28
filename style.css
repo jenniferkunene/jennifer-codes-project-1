@@ -33,6 +33,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     margin-top: 40px;
+    position: relative;
 }
 .box {
     height: 150px;
@@ -60,4 +61,20 @@ button {
 button:hover {
     cursor: pointer;
     transform: translateY(-2px);
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+    font-size: 3em;
+    line-height: 100px;
+}
+
+.line {
+    position: absolute;
+    border: 6px solid var(--orange);
+    border-radius: 6px;
 }
