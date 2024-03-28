@@ -86,6 +86,9 @@ function checkUserHasWon() {
 }
 
 function boxClicked(element) {
+    if (element.target.innerHTML != "") {
+        return;
+    } 
     element.target.innerHTML = currentPlayer;
 
     if (checkUserHasWon()) {
