@@ -2,6 +2,7 @@ let playerText = document.getElementById('playerText')
 let restartBtn = document.getElementById('restartBtn')
 let board = document.getElementById('gameboard');
 let boxes = Array.from(document.getElementsByClassName('box'));
+let trapBox = generateRandomNumber(0, 8);
 
 const winningMap = [
     [0, 1, 2],
@@ -88,7 +89,16 @@ function checkUserHasWon() {
 function boxClicked(element) {
     if (element.target.innerHTML != "") {
         return;
-    } 
+    }
+
+    if (Number(element.target.id) === trapBox) {
+        // trigger trap
+        console.log('trap triggered');
+        element.target.setAttribute('style', 'background: red');
+        trapBox = -1;
+        return;
+    }
+
     element.target.innerHTML = currentPlayer;
 
     if (checkUserHasWon()) {
@@ -110,12 +120,21 @@ const startGame = () => {
 function restart() {
     boxes.forEach( box=> {
         box.innerText = ''
+        box.setAttribute('style', '')
+
     })
 
     currentPlayer = X_TEXT;
-    board.removeChild(line);
+    try {
+        board.removeChild(line);
+    } catch(e) {}
+
     startGame();
 }
 restartBtn.addEventListener('click', restart)
+
+function generateRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 startGame();
